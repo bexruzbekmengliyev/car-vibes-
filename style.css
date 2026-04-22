@@ -1,0 +1,194 @@
+/* ===== RESET & VARIABLES ===== */
+:root {
+    --bg-primary: #050507;
+    --bg-card: #0c0c11;
+    --bg-card-hover: #111118;
+    --text-main: #f0f0f5;
+    --text-muted: #8a8a9a;
+    --border: #1a1a22;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+    --radius: 16px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+.header {
+    background: linear-gradient(180deg, #0a0a10 0%, var(--bg-primary) 100%);
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.gradient-text {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.6rem;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c, #8a2be2, #4facfe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.tab {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    border-radius: 12px;
+    background: #111118;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    font-family: var(--emoji), var(--font-body);
+}
+
+.tab:hover, .tab.active {
+    background: #1a1a22;
+    color: var(--text-main);
+    border-color: #2a2a35;
+}
+
+/* ===== GRID & CARDS ===== */
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    max-width: 1360px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.car-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7);
+    border-color: #252530;
+    background: var(--bg-card-hover);
+}
+
+.img-wrap {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    background: #15151c;
+}
+
+.img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.car-card:hover .img-wrap img { transform: scale(1.04); }
+
+.card-info { padding: 1.4rem; }
+
+.brand-tag {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 0.6rem;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+    border: 1px solid #222;
+}
+
+.car-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+}
+
+.car-type {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+}
+
+.creator-line {
+    font-size: 0.85rem;
+    color: #777;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--emoji), var(--font-body);
+}
+
+.badge {
+    background: #13131a;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9px;
+    font-size: 0.75rem;
+    color: #aaa;
+    border: 1px solid #202028;
+    font-weight: 500;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 2.2rem;
+    background: #030305;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .gradient-text { font-size: 2.2rem; }
+    .car-grid { padding: 1.5rem 1rem; gap: 1.5rem; }
+    .tab { padding: 0.6rem 1rem; font-size: 0.85rem; }
+}
