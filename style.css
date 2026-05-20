@@ -20,7 +20,7 @@ body {
     font-family: var(--font-body);
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;                           
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
